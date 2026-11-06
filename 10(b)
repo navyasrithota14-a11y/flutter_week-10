@@ -1,0 +1,77 @@
+import 'package:flutter/material.dart';
+void main()
+S
+runApp(MyApp());
+
+
+class MyApp extends StatelessWidget (
+// Debug Tip: If this is not const and UI rebuilds, re-run will be slower,
+goverride
+Widget build(BuildContext context) f
+return MaterialApp(
+showPerformanceOverlay: true,
+title: 'Flutter Debugging Demo'
+debugShowCheckedModeBanner: false,
+home: DebugDemoScreen(),
+DA
+
+
+class DebugDemoScreen extends Statefulwidget (
+@override
+DebugDemoscreenstate createstate()
+
+
+DebugDemoScreenState();
+
+
+class _DebugDemoscreenState extends State<DebugDemoscreen> f
+int counter = 0;
+String? message;
+void _incrementCounter() (
+setstate(()
+counter++
+debugPrint("Counter value updated to: $counter");
+// Intentional Bug: Message should update, but not set.
+if (counter % 2 == 0)
+message = "Even number clicked";
+) else f
+message
+"No message yet";
+
+
+D):
+
+
+DebugDemoScreenState();
+
+
+goverride
+Widget build(BuildContext context)
+// Layout Debug Tip: Using Column without proper spacing or overflow handling
+return Scaffold(
+appBar: AppBar(title: const Text('Debugging Tools Example')),
+body: Center(
+child: Column(
+mainAxisAlignment: MainAxisAlignment.center,
+children: [
+const Text('You pressed the button this many times:'),
+Text(
+'$counter',
+style: Theme.of(context).textTheme.headlineMedium,
+M
+if (message != null)
+Text(
+message !,
+style: const TextStyle(color: Colors.green),
+)
+else
+const Text(
+"No message yet",
+style: TextStyle(color: Colors.red),
+
+
+floatingActionButton: FloatingActionButton(
+onPressed: _incrementCounter,
+tooltip: 'Increment
+child: const Icon(Icons.add),
+)
